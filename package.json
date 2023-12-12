@@ -1,9 +1,61 @@
 {
+    "name": "changelog",
+    "version": "1.2.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "release": "release-it"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/RadityaRF/FiveMJobsMT.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/RadityaRF/FiveMJobsMT/issues"
+    },
+  "homepage": "https://github.com/RadityaRF/FiveMJobsMT#readme",
   "dependencies": {
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
     "commitlint": "^18.4.3",
     "husky": "^8.0.3",
     "release-it": "^17.0.1"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release v${version}"
+    },
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "publish": false
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "infile": "CHANGELOG.md",
+        "preset": {
+          "name": "conventionalcommits",
+          "types": [
+            {
+              "type": "feat",
+              "section": "Features"
+            },
+            {
+              "type": "fix",
+              "section": "Bug Fixes"
+            },
+            {
+              "type": "patch",
+              "section": "Patch Update"
+            },
+            {}
+          ]
+        }
+      }
+    }
   }
 }
